@@ -20,4 +20,4 @@ class RedisReuseConan(ConanFile):
 
     def test(self):
         #self.run("cd bin && .%stestproj" % os.sep)
-        self.run("src/redis-server" % os.sep)
+        self.run("src/redis-server")
