@@ -37,19 +37,10 @@ class redisConan(ConanFile):
 #        self.run(cmake_conf_command)
 #	self.run("cmake --build . %s" % cmake.build_config)
 
-#	self.run("cd cpp_redis && mkdir build")
-#	self.run("cd cpp_redis/build && cmake ..")	
 	self.run("cd redis-stable && make")
-#	self.run("make install")
     
     def package(self):
         self.copy("*", dst="src", src="redis-stable/src")
-#        self.copy("*", dst="include/cpp_redis/builders", src="install/include/cpp_redis/builders")
-#        self.copy("*", dst="include/cpp_redis/network", src="install/include/cpp_redis/network")
-#        self.copy("*", dst="include/cpp_redis/replies", src="install/include/cpp_redis/replies")	
-#        self.copy("*", dst="bin", src="install/bin")
-#        self.copy("*.a*", dst="lib", src="install/lib")
-#        self.copy("*.so*", dst="lib", src="install/lib")
  
     def package_info(self):
         self.cpp_info.libs = ["redis"]

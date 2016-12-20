@@ -9,9 +9,8 @@ class RedisReuseConan(ConanFile):
     requires = "redis/1.0.0@%s/%s" % (username, channel)
     generators = "cmake"
 
-    #def imports(self):
-    #  self.copy("*.dll", dst="bin", src="bin")
-    #  self.copy("*.dylib*", dst="bin", src="lib")
+    def imports(self):
+      self.copy("*", dst="bin", src="src")
 
     #def build(self):
     #    cmake = CMake(self.settings)
@@ -20,4 +19,4 @@ class RedisReuseConan(ConanFile):
 
     def test(self):
         #self.run("cd bin && .%stestproj" % os.sep)
-        self.run("src/redis-server")
+        self.run(os.sep.join([".","bin", "redis-server"]))
